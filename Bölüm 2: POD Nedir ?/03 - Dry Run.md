@@ -9,6 +9,7 @@ Aşağıdaki komutu çalıştırdığınızda hiç pod nasıl yazarım diye uğr
 ```
 
 Oluşan pod2.yaml dosyası aşağıdaki şekilde
+
 ```yaml
 apiVersion: v1
 kind: Pod
@@ -26,3 +27,6 @@ spec:
   restartPolicy: Always
 status: {}
 ```
+
+yani komutu yazıp horizatal mod autoscale'i nasıl yazarım, deployment'i nasıl yazarım bunları bulmak yerine otomatik
+oluşturmasını sağlayabiliyorsunuz.
