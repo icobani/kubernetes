@@ -1,0 +1,16 @@
+# service.yaml
+# Statik IP atanmış = ClusterIP tipi Service
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend-service
+  namespace: demo-app
+spec:
+  type: ClusterIP     # varsayılan, içeriden erişim sağlar
+  clusterIP: 10.96.0.250
+  selector:
+    app: backend  # deployment'taki label ile eşleşmeli
+  ports:
+    - protocol: TCP
+      port: 80        # Servisin dışa açtığı port
+      targetPort: 80  # Pod içindeki container port
