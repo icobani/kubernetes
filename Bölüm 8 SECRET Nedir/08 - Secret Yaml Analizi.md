@@ -1,0 +1,12 @@
+# Secret Yaml Analizi
+
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: db-secret
+type: Opaque
+data:
+  username: bXl1c2Vy # base64 encoded 'myuser'
+  password: bXlwYXNzd29yZA== # base64 encoded 'mypassword'
+```
