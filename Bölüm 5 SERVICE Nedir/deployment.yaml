@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-deployment
+  namespace: demo-app
+  labels:
+    app: nginx
+spec:
+  replicas: 3  # 3 adet nginx pod'u çalışacak
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+        - name: backend-container
+          image: nginx:1.25
+          ports:
+            - containerPort: 80
