@@ -1,5 +1,7 @@
 # Ingress Yaml Analizi
 
+<details><summary>Ingress Yaml  Dosyası Örneği</summary>
+
 ```yaml
 apiVersion: networking.k8s.io/v1
 kind: Ingress
@@ -22,3 +24,5 @@ spec:
                 port:
                   number: 80
 ```
+
+</details>
