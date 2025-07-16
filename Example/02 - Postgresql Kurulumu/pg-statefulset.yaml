@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: postgres
+  namespace: postgres-cluster
+spec:
+  serviceName: "postgres"
+  replicas: 3
+  selector:
+    matchLabels:
+      app: postgres
+  template:
+    metadata:
+      labels:
+        app: postgres
+    spec:
+      containers:
+        - name: postgres
+          image: bitnami/postgresql:15
+          env:
+            - name: POSTGRESQL_PASSWORD
+              value: "Zp8mR2xL9vBt4qNh"
+            - name: POSTGRESQL_REPLICATION_MODE
+              value: "master"
+            - name: POSTGRESQL_REPLICATION_USER
+              value: repl_user
+            - name: POSTGRESQL_REPLICATION_PASSWORD
+              value: repl_pass
+          ports:
+            - containerPort: 5432
+          volumeMounts:
+            - name: data
+              mountPath: /bitnami/postgresql
+  volumeClaimTemplates:
+    - metadata:
+        name: data
+      spec:
+        accessModes: [ "ReadWriteOnce" ]
+        resources:
+          requests:
+            storage: 1Gi
